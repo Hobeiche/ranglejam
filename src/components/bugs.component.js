@@ -30,8 +30,7 @@ export default class Bugs extends Component {
 
 
   render() {
-    return <div style={{height: '100vh', width: '100vw'}} ref={ elem => { this.element = elem; } }></div>;
+    return <div style={{height: '400px', width: '100%'}} ref={ elem => { this.element = elem; } }></div>;
   }
 
 }
-
