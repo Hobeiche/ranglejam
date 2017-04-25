@@ -22,14 +22,14 @@ class App extends Component {
 
   componentDidMount(){
     axios.get('bugsdribble/data.json')
-      .then(res => this.setData(res.data))
+      .then(res => this.setData(res.data, {shouldLoop: true}))
   }
 
 
   @keydown(Keys.space)
   toggleRun() {
     axios.get(this.state.isRunning ? 'bugsdribble/data.json' : 'bugsrunning/data.json')
-      .then(res => this.setData(res.data, {isRunning: !this.state.isRunning}))
+      .then(res => this.setData(res.data, {isRunning: !this.state.isRunning, shouldLoop: true}))
   }
 
   @keydown('d')
