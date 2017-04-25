@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import keydown from 'react-keydown';
+import keydown, {Keys} from 'react-keydown';
+
 
 
 import Bugs from './components/bugs.component';
@@ -20,7 +21,7 @@ class App extends Component {
   }
 
 
-  @keydown('space')
+  @keydown(Keys.space)
   switchToRun() {
     axios.get('bugsrunning/data.json')
       .then(res => {
@@ -29,9 +30,17 @@ class App extends Component {
   }
 
 
-  @keydown('enter')
+  @keydown(Keys.enter)
   switchToDribble() {
     axios.get('bugsdribble/data.json')
+      .then(res => {
+        this.setState({bugsData: res.data});
+      })
+  }
+
+  @keydown('d')
+  switchToDunk() {
+    axios.get('bugsdunk/data.json')
       .then(res => {
         this.setState({bugsData: res.data});
       })
