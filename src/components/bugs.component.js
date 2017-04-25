@@ -10,19 +10,19 @@ export default class Bugs extends Component {
     this.anim = bodymovin.loadAnimation({
       container: this.element,
       renderer: 'svg',
-      loop: true,
+      loop: this.props.loop,
       autoplay: true,
       animationData: this.props.data
     });
 
   }
 
-  componentWillReceiveProps({data}){
+  componentWillReceiveProps({data, loop}){
     this.anim.destroy();
     this.anim = bodymovin.loadAnimation({
       container: this.element,
       renderer: 'svg',
-      loop: true,
+      loop,
       autoplay: true,
       animationData: data
     });
